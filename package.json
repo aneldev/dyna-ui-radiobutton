@@ -1,0 +1,118 @@
+{
+  "name": "dyna-ui-radiobutton",
+  "version": "2.0.1",
+  "description": "About",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aneldev/dyna-ui-radiobutton"
+  },
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "preinstall": "sudo npm install -g typescript",
+    "clear": "rimraf build temp",
+    "start": "webpack-dev-server --config webpack.dev.config.js --port 3200 --devtool eval --progress --inline --hot --content-base dev/public --host 0.0.0.0",
+    "build": "rimraf build && webpack --config webpack.build.config.js",
+    "release": "npm run dist",
+    "dist": "rimraf ./dist/ && npm run .build-index.d.ts && npm run .build-dist",
+    ".build-index.d.ts": "tsc && rm ./dist/index.js && npm run .build-index.d.ts-clear",
+    ".build-index.d.ts-clear": "cd dist/ && find . -name \\*.js -delete && cd ..",
+    ".build-dist": "set NODE_ENV=production && webpack --config webpack.dist.config.js",
+    "test": "npm run dist && jest --coverage --no-cache --runInBand",
+    "test-only": "jest --coverage --no-cache --runInBand",
+    "test-watch": "jest --watch --verbose --runInBand",
+    "pp": "npm run publish-push",
+    "publish-push": "npm version patch && npm publish && git push && git push --tags",
+    "tpp": "npm run test-publish-push",
+    "test-publish-push": "npm test && npm version patch && npm publish && git push && git push --tags",
+    "sync-externals": "node syncExternals.js",
+    "reinstall": "rm -rf node_modules/ && npm install",
+    "reinstall-hard": "rm package-lock.json && rm -rf node_modules/ && npm install"
+  },
+  "keywords": [],
+  "author": "Anel dev",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "@types/node": "^7.0.14",
+    "@types/react": "^15.0.27",
+    "@types/react-dom": "^15.5.0",
+    "autoprefixer": "^7.1.1",
+    "awesome-typescript-loader": "^3.1.3",
+    "babel-core": "6.11.4",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "6.0.0",
+    "babel-plugin-add-module-exports": "0.1.2",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-runtime": "6.11.6",
+    "css-loader": "^0.28.4",
+    "dyna-showcase": "^0.4.3",
+    "enzyme": "^2.8.2",
+    "enzyme-to-json": "^1.5.1",
+    "file-loader": "^0.9.0",
+    "font-awesome": "^4.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4",
+    "jest-junit": "^1.5.1",
+    "jest-serializer-enzyme": "^1.0.0",
+    "json-loader": "^0.5.4",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.12.1",
+    "postcss-cli": "^4.1.0",
+    "postcss-loader": "^2.0.6",
+    "raw-loader": "^0.5.1",
+    "react-addons-test-utils": "^15.4.2",
+    "react-test-renderer": "^15.6.1",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.5",
+    "source-map-loader": "0.1.5",
+    "style-loader": "^0.18.2",
+    "ts-jest": "^20.0.6",
+    "typescript": "^2.3.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.5.6",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "jest": {
+    "automock": false,
+    "collectCoverage": false,
+    "testEnvironment": "node",
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(src|tests)/.*\\.(test|spec)\\.(ts|tsx|js|jsx)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|jpg|png|svg|gif)$": "identity-obj-proxy"
+    },
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx,js,jsx}",
+      "!src/**/*.d.ts"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-enzyme"
+    ]
+  },
+  "jest-junit": {
+    "output": "./coverage/junit.xml"
+  }
+}
