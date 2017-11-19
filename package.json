@@ -33,9 +33,11 @@
   "author": "Anel dev",
   "license": "MIT",
   "dependencies": {
+    "@types/react-motion": "0.0.23",
+    "font-awesome": "^4.7.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "font-awesome": "^4.7.0"
+    "react-motion": "^0.5.2"
   },
   "devDependencies": {
     "@types/jest": "^19.2.2",

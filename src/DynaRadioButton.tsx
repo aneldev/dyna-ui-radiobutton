@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Motion, MotionProps, spring, Style} from "react-motion";
 
 const style: any = require('./DynaRadioButton.less');
 
@@ -33,6 +34,11 @@ export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any>
 
     const strokeWidth: number = 1;
     const coreBulletWidth:number= checked ? (size/2) * 0.6 : 0;
+	  let motionStyle: Style;
+	  if (checked)
+		  motionStyle = {bulletWidth: {stiffness: 300, damping: 10, val: coreBulletWidth, precision: 1}};
+	  else
+		  motionStyle = {bulletWidth: {stiffness: 300, damping: 26, val: coreBulletWidth, precision: 1}};
 
     return (
       <div className={style.container}>
@@ -47,14 +53,18 @@ export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any>
                 strokeWidth={strokeWidth}
                 fill="transparent"
               />
-              <circle
-                cx={size / 2}
-                cy={size / 2}
-                r={coreBulletWidth}
-                stroke={foregoundColor}
-                strokeWidth={strokeWidth}
-                fill="foregoundColor"
-              />
+	            <Motion defaultStyle={{bulletWidth: 0}} style={motionStyle}>
+		            {interpolatingStyle => (
+			            <circle
+				            cx={size / 2}
+				            cy={size / 2}
+				            r={interpolatingStyle.bulletWidth}
+				            stroke={foregoundColor}
+				            strokeWidth={strokeWidth}
+				            fill="foregoundColor"
+			            />
+		            )}
+	            </Motion>
             </g>
           </svg>
         </div>
