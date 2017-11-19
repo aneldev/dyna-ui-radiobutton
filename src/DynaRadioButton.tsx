@@ -8,15 +8,13 @@ export interface IDynaRadioButtonProps {
   caption?: string;
   size?: number;
   foregoundColor?: string;
-  backgoundColor?: string;
   onChange?: (checked: boolean) => void;
 }
 
 export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any> {
   static defaultProps: IDynaRadioButtonProps = {
     foregoundColor: 'black',
-    backgoundColor: 'transparent',
-    size: 50,
+    size: 20,
   };
 
 
@@ -27,13 +25,13 @@ export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any>
 
   public render(): JSX.Element {
     const {
-      foregoundColor, backgoundColor,
+      foregoundColor,
       size, caption,
       checked
     } = this.props;
 
     const strokeWidth: number = 1;
-    const coreBulletWidth:number= checked ? (size/2) * 0.6 : 0;
+    const coreBulletWidth:number= checked ? (size/2) * 0.55 : 0;
 	  let motionStyle: Style;
 	  if (checked)
 		  motionStyle = {bulletWidth: {stiffness: 300, damping: 10, val: coreBulletWidth, precision: 1}};

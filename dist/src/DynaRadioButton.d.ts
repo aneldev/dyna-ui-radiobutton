@@ -4,7 +4,6 @@ export interface IDynaRadioButtonProps {
     caption?: string;
     size?: number;
     foregoundColor?: string;
-    backgoundColor?: string;
     onChange?: (checked: boolean) => void;
 }
 export declare class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any> {
