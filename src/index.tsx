@@ -1,1 +1,3 @@
-import "./f9ht.less";
+import {DynaRadioButton, IDynaRadioButtonProps} from './DynaRadioButton';
+
+export {DynaRadioButton, IDynaRadioButtonProps}
