@@ -51,7 +51,39 @@ export default {
         },
       ]
     },
-    {
+	  {
+		  slug: 'user-interaction',
+		  title: 'user interaction',
+		  description: 'play with the radio button',
+		  center: true,
+		  component: (
+			  (()=>{
+			  	class MyTestComponent extends React.Component<{}, {checked:boolean}>{
+			  	  constructor(props:{}){
+			  	  	super(props);
+			  	  	this.state={
+			  	  		checked: false,
+					    }
+				    }
+			  		public render():JSX.Element{
+						  return (
+							  <DynaRadioButton
+								  caption="Super radio button"
+								  checked={this.state.checked}
+								  onChange={(checked) => {
+								  	console.log('checked', checked);
+									  this.setState({checked: !this.state.checked});
+								  }}
+							  />
+						  )
+					  }
+				  }
+
+				  return <MyTestComponent/>
+			  })()
+		  ),
+	  },
+	  {
       slug: 'the-end',
       title: 'the end',
       description: 'Thank you',

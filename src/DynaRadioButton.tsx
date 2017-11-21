@@ -39,7 +39,7 @@ export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any>
 		  motionStyle = {bulletWidth: {stiffness: 300, damping: 26, val: coreBulletWidth, precision: 1}};
 
     return (
-      <div className={style.container}>
+      <div className={style.container} onClick={this.handleClick.bind(this)}>
         <div className={style.bulletContainer}>
           <svg width={size} height={size} xmlns="http://www.w3.org/2000/svg">
             <g>
