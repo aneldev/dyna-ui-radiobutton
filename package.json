@@ -9,7 +9,6 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "preinstall": "sudo npm install -g typescript",
     "clear": "rimraf build temp",
     "start": "webpack-dev-server --config webpack.dev.config.js --port 3200 --devtool eval --progress --inline --hot --content-base dev/public --host 0.0.0.0",
     "build": "rimraf build && webpack --config webpack.build.config.js",
@@ -33,7 +32,6 @@
   "author": "Anel dev",
   "license": "MIT",
   "dependencies": {
-    "@types/react-motion": "0.0.23",
     "font-awesome": "^4.7.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
