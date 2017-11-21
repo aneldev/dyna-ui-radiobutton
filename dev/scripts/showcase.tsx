@@ -71,8 +71,7 @@ export default {
 								  caption="Super radio button"
 								  checked={this.state.checked}
 								  onChange={(checked) => {
-								  	console.log('checked', checked);
-									  this.setState({checked: !this.state.checked});
+									  this.setState({checked: checked});
 								  }}
 							  />
 						  )

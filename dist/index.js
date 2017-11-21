@@ -2945,12 +2945,12 @@ class DynaRadioButton extends React.Component {
             motionStyle = { bulletWidth: { stiffness: 300, damping: 10, val: coreBulletWidth, precision: 1 } };
         else
             motionStyle = { bulletWidth: { stiffness: 300, damping: 26, val: coreBulletWidth, precision: 1 } };
-        return (React.createElement("div", { className: style.container },
+        return (React.createElement("div", { className: style.container, onClick: this.handleClick.bind(this) },
             React.createElement("div", { className: style.bulletContainer },
                 React.createElement("svg", { width: size, height: size, xmlns: "http://www.w3.org/2000/svg" },
                     React.createElement("g", null,
                         React.createElement("circle", { cx: size / 2, cy: size / 2, r: (size / 2) - strokeWidth, stroke: foregoundColor, strokeWidth: strokeWidth, fill: "transparent" }),
-                        React.createElement(react_motion_1.Motion, { defaultStyle: { bulletWidth: 0 }, style: motionStyle }, interpolatingStyle => (React.createElement("circle", { cx: size / 2, cy: size / 2, r: interpolatingStyle.bulletWidth, stroke: foregoundColor, strokeWidth: strokeWidth, fill: "foregoundColor" })))))),
+                        React.createElement(react_motion_1.Motion, { defaultStyle: { bulletWidth: 0 }, style: motionStyle }, interpolatingStyle => (React.createElement("circle", { cx: size / 2, cy: size / 2, r: interpolatingStyle.bulletWidth >= 0 ? interpolatingStyle.bulletWidth : 0, stroke: foregoundColor, strokeWidth: strokeWidth, fill: "foregoundColor" })))))),
             React.createElement("div", { className: style.textContainer }, caption)));
     }
 }
