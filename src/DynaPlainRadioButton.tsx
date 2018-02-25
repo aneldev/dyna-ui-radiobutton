@@ -4,6 +4,7 @@ import {Motion, MotionProps, spring, Style} from "react-motion";
 import "./DynaPlainRadioButton.less";
 
 export interface IDynaPlainRadioButtonProps {
+	className?: string;
 	checked?: boolean;
 	label?: string;
 	size?: number;
@@ -12,6 +13,7 @@ export interface IDynaPlainRadioButtonProps {
 
 export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonProps> {
 	static defaultProps: IDynaPlainRadioButtonProps = {
+		className: '',
 		checked: true,
 		label: '',
 		size: 20,
@@ -29,6 +31,11 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 			checked
 		} = this.props;
 
+		const className: string = [
+			"dyna-plain-radio-button",
+			this.props.className,
+		].join(' ').trim();
+
 		const strokeWidth: number = 1;
 		const coreBulletWidth: number = checked ? (size / 2) * 0.55 : 0;
 		let motionStyle: Style;
@@ -38,7 +45,7 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 			motionStyle = {bulletWidth: {stiffness: 300, damping: 26, val: coreBulletWidth, precision: 1}};
 
 		return (
-			<div className="dyna-plain-radio-button" onClick={this.handleClick.bind(this)}>
+			<div className={className} onClick={this.handleClick.bind(this)}>
 				<div className="bullet-container">
 					<svg width={size} height={size} xmlns="http://www.w3.org/2000/svg">
 						<g>

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import "./DynaPlainRadioButton.less";
 export interface IDynaPlainRadioButtonProps {
+    className?: string;
     checked?: boolean;
     label?: string;
     size?: number;
-    foregoundColor?: string;
     onChange?: (checked: boolean) => void;
 }
 export declare class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonProps> {

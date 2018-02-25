@@ -720,6 +720,10 @@ var DynaPlainRadioButton = /** @class */ (function (_super) {
     };
     DynaPlainRadioButton.prototype.render = function () {
         var _a = this.props, size = _a.size, label = _a.label, checked = _a.checked;
+        var className = [
+            "dyna-plain-radio-button",
+            this.props.className,
+        ].join(' ').trim();
         var strokeWidth = 1;
         var coreBulletWidth = checked ? (size / 2) * 0.55 : 0;
         var motionStyle;
@@ -727,7 +731,7 @@ var DynaPlainRadioButton = /** @class */ (function (_super) {
             motionStyle = { bulletWidth: { stiffness: 300, damping: 10, val: coreBulletWidth, precision: 1 } };
         else
             motionStyle = { bulletWidth: { stiffness: 300, damping: 26, val: coreBulletWidth, precision: 1 } };
-        return (React.createElement("div", { className: "dyna-plain-radio-button", onClick: this.handleClick.bind(this) },
+        return (React.createElement("div", { className: className, onClick: this.handleClick.bind(this) },
             React.createElement("div", { className: "bullet-container" },
                 React.createElement("svg", { width: size, height: size, xmlns: "http://www.w3.org/2000/svg" },
                     React.createElement("g", null,
@@ -736,10 +740,10 @@ var DynaPlainRadioButton = /** @class */ (function (_super) {
             React.createElement("div", { className: "text-container" }, label)));
     };
     DynaPlainRadioButton.defaultProps = {
+        className: '',
         checked: true,
         label: '',
         size: 20,
-        foregoundColor: 'black',
         onChange: function (checked) { return undefined; },
     };
     return DynaPlainRadioButton;
