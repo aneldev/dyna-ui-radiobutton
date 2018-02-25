@@ -7,7 +7,6 @@ export interface IDynaPlainRadioButtonProps {
 	checked?: boolean;
 	label?: string;
 	size?: number;
-	foregoundColor?: string;
 	onChange?: (checked: boolean) => void;
 }
 
@@ -16,7 +15,6 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 		checked: true,
 		label: '',
 		size: 20,
-		foregoundColor: 'black',
 		onChange: (checked: boolean) => undefined,
 	};
 
