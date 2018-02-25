@@ -1,0 +1,30 @@
+.dyna-radio-button {
+
+	.dyna-plain-radio-button{
+		position: absolute;
+	}
+
+	.width-helper{
+		width: 20px !important;
+	}
+
+	input {
+		position: absolute;
+		left: -1000px; // hide it
+	}
+
+	&.dyna-ui-field-wrapper--size-LARGE{
+		.dyna-ui-field-wrapper-control-container{
+			position: relative;
+			.dyna-plain-radio-button{
+				top: 1px;
+			}
+		}
+	}
+
+	.dyna-ui-field-wrapper-container{
+		min-width: 20px; // IE11 bug fix
+	}
+
+
+}

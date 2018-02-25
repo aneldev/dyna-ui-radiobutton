@@ -1,5 +1,7 @@
 import * as React from 'react';
-import {DynaPlainRadioButton} from "../../src";
+import {EColor, EMode, ESize} from "dyna-ui-field-wrapper";
+
+import {DynaRadioButton, DynaPlainRadioButton} from "../../src";
 
 import {faIcon, IShowcase} from "dyna-showcase";
 import {Logo} from "../logo";
@@ -50,6 +52,67 @@ export default {
 			})(),
 			wrapperStyle: {
 			},
+		},
+		{
+			slug: 'dyna-radio-button',
+			faIconName: 'flask',
+			title: 'dyna radio button',
+			center: true,
+			component: (() => {
+				interface IMyAppProps {
+					size?: ESize;
+				}
+
+				interface IMyAppState {
+					checked: boolean
+				}
+
+				class MyApp extends React.Component<IMyAppProps, IMyAppState> {
+					constructor(props: IMyAppProps) {
+						super(props);
+						this.state = {
+							checked: true,
+						}
+					}
+
+					public render(): JSX.Element {
+						return (
+							<div>
+								<h4>edit mode</h4>
+								<DynaRadioButton
+									name="happy"
+									size={this.props.size}
+									color={EColor.GRAY_WHITE}
+									label="I am happy"
+									checked={this.state.checked}
+									onChange={(name: string, checked: boolean) => this.setState({checked})}
+								/>
+								<h4>view mode</h4>
+								<DynaRadioButton
+									mode={EMode.VIEW}
+									name="happy"
+									size={this.props.size}
+									color={EColor.GRAY_WHITE}
+									label="I am happy"
+									checked={this.state.checked}
+									onChange={(name: string, checked: boolean) => this.setState({checked})}
+								/>
+
+							</div>
+						);
+					}
+				}
+
+				return <MyApp/>;
+			})(),
+			wrapperStyle: {},
+			props: Object.keys(ESize).map((size: ESize) => ({
+				slug: `size-${size}`,
+				title: `size ${size.toLowerCase()}`,
+				props: {
+					size,
+				}
+			}))
 		},
 		{
 			slug: 'the-end',

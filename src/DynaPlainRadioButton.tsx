@@ -13,8 +13,11 @@ export interface IDynaPlainRadioButtonProps {
 
 export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonProps> {
 	static defaultProps: IDynaPlainRadioButtonProps = {
-		foregoundColor: 'black',
+		checked: true,
+		label: '',
 		size: 20,
+		foregoundColor: 'black',
+		onChange: (checked: boolean) => undefined,
 	};
 
 	private handleClick(): void {
@@ -24,7 +27,6 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 
 	public render(): JSX.Element {
 		const {
-			foregoundColor,
 			size, label,
 			checked
 		} = this.props;
@@ -46,7 +48,6 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 								cx={size / 2}
 								cy={size / 2}
 								r={(size / 2) - strokeWidth}
-								stroke={foregoundColor}
 								strokeWidth={strokeWidth}
 								fill="transparent"
 							/>
@@ -56,9 +57,7 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 										cx={size / 2}
 										cy={size / 2}
 										r={interpolatingStyle.bulletWidth >= 0 ? Number(interpolatingStyle.bulletWidth) : 0}
-										stroke={foregoundColor}
 										strokeWidth={strokeWidth}
-										fill="foregoundColor"
 									/>
 								)}
 							</Motion>
