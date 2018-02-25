@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {faIcon} from "dyna-showcase";
 
-const styles = require('./Logo.less');
+const styles = require('./index.module.less');
 
 export const Logo= ()=>(
   <div className={styles.container}>
@@ -9,8 +9,8 @@ export const Logo= ()=>(
       {faIcon('cubes')}
     </div>
     <div className={styles.texts}>
-      <div className={styles.line1}>dyna ui</div>
-      <div className={styles.line2}>radio button</div>
+      <div className={styles.line1}>dyna ui radio button</div>
+      <div className={styles.line2}>turn on the radio!</div>
     </div>
   </div>
 

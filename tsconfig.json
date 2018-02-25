@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
+    "lib": ["es2016", "es6", "dom"],
     "outDir": "./dist/",
     "declaration": true,
     "declarationDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "es6",
+    "target": "es5",
     "jsx": "react",
     "allowJs": false,
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "types" : [ "node" ]
   },
   "files": [
     "src/index.tsx"

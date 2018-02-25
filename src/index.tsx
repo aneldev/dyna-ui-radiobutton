@@ -1,3 +1,3 @@
-import {DynaRadioButton, IDynaRadioButtonProps} from "./DynaRadioButton";
+import {DynaPlainRadioButton, IDynaPlainRadioButtonProps} from "./DynaPlainRadioButton";
 
-export {DynaRadioButton, IDynaRadioButtonProps}
+export {DynaPlainRadioButton, IDynaPlainRadioButtonProps}

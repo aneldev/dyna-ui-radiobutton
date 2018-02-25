@@ -1,22 +1,21 @@
 import * as React from 'react';
 import {Motion, MotionProps, spring, Style} from "react-motion";
 
-const style: any = require('./DynaRadioButton.less');
+import "./DynaPlainRadioButton.less";
 
-export interface IDynaRadioButtonProps {
+export interface IDynaPlainRadioButtonProps {
 	checked?: boolean;
-	caption?: string;
+	label?: string;
 	size?: number;
 	foregoundColor?: string;
 	onChange?: (checked: boolean) => void;
 }
 
-export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any> {
-	static defaultProps: IDynaRadioButtonProps = {
+export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonProps> {
+	static defaultProps: IDynaPlainRadioButtonProps = {
 		foregoundColor: 'black',
 		size: 20,
 	};
-
 
 	private handleClick(): void {
 		const {checked, onChange} = this.props;
@@ -26,7 +25,7 @@ export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any>
 	public render(): JSX.Element {
 		const {
 			foregoundColor,
-			size, caption,
+			size, label,
 			checked
 		} = this.props;
 
@@ -39,8 +38,8 @@ export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any>
 			motionStyle = {bulletWidth: {stiffness: 300, damping: 26, val: coreBulletWidth, precision: 1}};
 
 		return (
-			<div className={style.container} onClick={this.handleClick.bind(this)}>
-				<div className={style.bulletContainer}>
+			<div className="dyna-plain-radio-button" onClick={this.handleClick.bind(this)}>
+				<div className="bullet-container">
 					<svg width={size} height={size} xmlns="http://www.w3.org/2000/svg">
 						<g>
 							<circle
@@ -52,11 +51,11 @@ export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any>
 								fill="transparent"
 							/>
 							<Motion defaultStyle={{bulletWidth: 0}} style={motionStyle}>
-								{interpolatingStyle => (
+								{(interpolatingStyle: Style) => (
 									<circle
 										cx={size / 2}
 										cy={size / 2}
-										r={interpolatingStyle.bulletWidth >= 0 ? interpolatingStyle.bulletWidth : 0}
+										r={interpolatingStyle.bulletWidth >= 0 ? Number(interpolatingStyle.bulletWidth) : 0}
 										stroke={foregoundColor}
 										strokeWidth={strokeWidth}
 										fill="foregoundColor"
@@ -66,7 +65,7 @@ export class DynaRadioButton extends React.Component<IDynaRadioButtonProps, any>
 						</g>
 					</svg>
 				</div>
-				<div className={style.textContainer}>{caption}</div>
+				<div className="text-container">{label}</div>
 			</div>
 		);
 	}
