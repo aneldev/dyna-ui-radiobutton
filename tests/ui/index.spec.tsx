@@ -18,8 +18,7 @@ describe('Home', () => {
 	      <DynaPlainRadioButton
 		      checked={false}
 		      onChange={() => console.log('I am clicked')}
-	      />
-      ),
+	      />      ),
       {}
     );
 
