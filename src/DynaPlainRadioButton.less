@@ -1,7 +1,19 @@
 .dyna-plain-radio-button{
 	display: flex;
 	align-items: center;
-	cursor: pointer;
+	transition: opacity 250ms ease-in-out;
+
+	&--enabled,
+	&--mode-EDIT {
+		cursor: pointer;
+		opacity: 1;
+	}
+
+	&--disabled,
+	&--mode-VIEW {
+		cursor: default;
+		opacity: 0.8;
+	}
 
 	.bullet-container{
 		height: auto;

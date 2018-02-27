@@ -24,9 +24,9 @@ export default {
 			),
 		},
 		{
-			slug: 'plain-radio-button',
+			slug: 'plain-radio-button-enabled-disabled',
 			faIconName: 'flask',
-			title: 'plain radio button',
+			title: 'plain radio button, enabled/disabled',
 			center: true,
 			component: (() => {
 				class MyApp extends React.Component<{}, { checked: boolean }> {
@@ -39,11 +39,68 @@ export default {
 
 					public render(): JSX.Element {
 						return (
-							<DynaPlainRadioButton
-								label="I am happy"
-								checked={this.state.checked}
-								onChange={(checked: boolean) => this.setState({checked})}
-							/>
+							<div>
+								<div>
+									<DynaPlainRadioButton
+										label="I am enabled"
+										checked={this.state.checked}
+										onChange={(checked: boolean) => this.setState({checked})}
+									/>
+								</div>
+								<div>
+									<DynaPlainRadioButton
+										label="I am disabled"
+										disabled
+										checked={this.state.checked}
+										onChange={(checked: boolean) => this.setState({checked})}
+									/>
+
+								</div>
+							</div>
+						);
+					}
+				}
+
+				return <MyApp/>;
+			})(),
+			wrapperStyle: {
+			},
+		},
+		{
+			slug: 'plain-radio-button-view-edit',
+			faIconName: 'flask',
+			title: 'plain radio button, view edit',
+			center: true,
+			component: (() => {
+				class MyApp extends React.Component<{}, { checked: boolean }> {
+					constructor(props: {}) {
+						super(props);
+						this.state = {
+							checked: true,
+						}
+					}
+
+					public render(): JSX.Element {
+						return (
+							<div>
+								<div>
+									<DynaPlainRadioButton
+										label="I am in edit mode"
+										mode={EMode.EDIT}
+										checked={this.state.checked}
+										onChange={(checked: boolean) => this.setState({checked})}
+									/>
+								</div>
+								<div>
+									<DynaPlainRadioButton
+										label="I am in view mode"
+										mode={EMode.VIEW}
+										checked={this.state.checked}
+										onChange={(checked: boolean) => this.setState({checked})}
+									/>
+
+								</div>
+							</div>
 						);
 					}
 				}
@@ -82,7 +139,7 @@ export default {
 								<DynaRadioButton
 									name="happy"
 									size={this.props.size}
-									color={EColor.GRAY_WHITE}
+									color={EColor.GREY_WHITE}
 									label="I am happy"
 									checked={this.state.checked}
 									onChange={(name: string, checked: boolean) => this.setState({checked})}
@@ -92,7 +149,7 @@ export default {
 									mode={EMode.VIEW}
 									name="happy"
 									size={this.props.size}
-									color={EColor.GRAY_WHITE}
+									color={EColor.GREY_WHITE}
 									label="I am happy"
 									checked={this.state.checked}
 									onChange={(name: string, checked: boolean) => this.setState({checked})}

@@ -1,39 +1,51 @@
 import * as React from 'react';
-import {Motion, MotionProps, spring, Style} from "react-motion";
+import {Motion, Style} from "react-motion";
+import {EMode} from "dyna-ui-field-wrapper";
 
 import "./DynaPlainRadioButton.less";
 
 export interface IDynaPlainRadioButtonProps {
 	className?: string;
+	mode?: EMode;
 	checked?: boolean;
 	label?: string;
 	size?: number;
+	disabled?: boolean;
 	onChange?: (checked: boolean) => void;
 }
 
 export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonProps> {
 	static defaultProps: IDynaPlainRadioButtonProps = {
 		className: '',
+		mode: EMode.EDIT,
 		checked: true,
 		label: '',
 		size: 20,
+		disabled: false,
 		onChange: (checked: boolean) => undefined,
 	};
 
 	private handleClick(): void {
-		const {checked, onChange} = this.props;
+		const {mode, checked, disabled, onChange} = this.props;
+		if (disabled) return;
+		if (mode !== EMode.EDIT) return;
 		onChange(!checked);
 	}
 
 	public render(): JSX.Element {
 		const {
+			className: cn,
+			mode,
 			size, label,
-			checked
+			disabled,
+			checked,
 		} = this.props;
 
 		const className: string = [
 			"dyna-plain-radio-button",
-			this.props.className,
+			cn,
+			`dyna-plain-radio-button--${disabled ? 'disabled' : 'enabled'}`,
+			`dyna-plain-radio-button--mode-${mode}`,
 		].join(' ').trim();
 
 		const strokeWidth: number = 1;
