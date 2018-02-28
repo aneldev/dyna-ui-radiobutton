@@ -7,6 +7,7 @@ import {faIcon, IShowcase} from "dyna-showcase";
 import {Logo} from "../logo";
 
 import "./showcase.less";
+import {IShowcaseViewProps} from "dyna-showcase/dist/interfaces";
 
 export default {
 	logo: <Logo/>,
@@ -29,8 +30,16 @@ export default {
 			title: 'plain radio button, enabled/disabled',
 			center: true,
 			component: (() => {
-				class MyApp extends React.Component<{}, { checked: boolean }> {
-					constructor(props: {}) {
+				interface IMyAppProps {
+					color?: EColor
+				}
+
+				interface IMyAppState {
+					checked: boolean
+				}
+
+				class MyApp extends React.Component<IMyAppProps, IMyAppState> {
+					constructor(props: IMyAppProps) {
 						super(props);
 						this.state = {
 							checked: true,
@@ -38,11 +47,13 @@ export default {
 					}
 
 					public render(): JSX.Element {
+						const {color} = this.props;
 						return (
 							<div>
 								<div>
 									<DynaPlainRadioButton
 										label="I am enabled"
+										color={color}
 										checked={this.state.checked}
 										onChange={(checked: boolean) => this.setState({checked})}
 									/>
@@ -50,11 +61,11 @@ export default {
 								<div>
 									<DynaPlainRadioButton
 										label="I am disabled"
+										color={color}
 										disabled
 										checked={this.state.checked}
 										onChange={(checked: boolean) => this.setState({checked})}
 									/>
-
 								</div>
 							</div>
 						);
@@ -63,6 +74,15 @@ export default {
 
 				return <MyApp/>;
 			})(),
+			props: Object.keys(EColor).map((color: EColor) => {
+				return {
+					slug: `color-${color}`,
+					title: `color ${color.toLowerCase().replace(/_/g,' ')}`,
+					props: {
+						color,
+					},
+				} as IShowcaseViewProps
+			}),
 			wrapperStyle: {
 			},
 		},

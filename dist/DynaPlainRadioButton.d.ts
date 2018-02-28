@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { EMode } from "dyna-ui-field-wrapper";
+import { EMode, EColor } from "dyna-ui-field-wrapper";
 import "./DynaPlainRadioButton.less";
 export interface IDynaPlainRadioButtonProps {
     className?: string;
     mode?: EMode;
+    color?: EColor;
     checked?: boolean;
     label?: string;
     size?: number;

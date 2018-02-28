@@ -1918,12 +1918,13 @@ var DynaPlainRadioButton = /** @class */ (function (_super) {
         onChange(!checked);
     };
     DynaPlainRadioButton.prototype.render = function () {
-        var _a = this.props, cn = _a.className, mode = _a.mode, size = _a.size, label = _a.label, disabled = _a.disabled, checked = _a.checked;
+        var _a = this.props, cn = _a.className, mode = _a.mode, color = _a.color, size = _a.size, label = _a.label, disabled = _a.disabled, checked = _a.checked;
         var className = [
             "dyna-plain-radio-button",
             cn,
             "dyna-plain-radio-button--" + (disabled ? 'disabled' : 'enabled'),
             "dyna-plain-radio-button--mode-" + mode,
+            "dyna-plain-radio-button--color-" + color,
         ].join(' ').trim();
         var strokeWidth = 1;
         var coreBulletWidth = checked ? (size / 2) * 0.55 : 0;
@@ -1943,6 +1944,7 @@ var DynaPlainRadioButton = /** @class */ (function (_super) {
     DynaPlainRadioButton.defaultProps = {
         className: '',
         mode: dyna_ui_field_wrapper_1.EMode.EDIT,
+        color: dyna_ui_field_wrapper_1.EColor.WHITE_BLACK,
         checked: true,
         label: '',
         size: 20,
@@ -4794,7 +4796,7 @@ exports = module.exports = __webpack_require__(16)(false);
 
 
 // module
-exports.push([module.i, ".dyna-plain-radio-button {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-transition: opacity 250ms ease-in-out;\n  transition: opacity 250ms ease-in-out;\n}\n.dyna-plain-radio-button--enabled,\n.dyna-plain-radio-button--mode-EDIT {\n  cursor: pointer;\n  opacity: 1;\n}\n.dyna-plain-radio-button--disabled,\n.dyna-plain-radio-button--mode-VIEW {\n  cursor: default;\n  opacity: 0.8;\n}\n.dyna-plain-radio-button .bullet-container {\n  height: auto;\n  font-size: 0;\n}\n.dyna-plain-radio-button .bullet-container svg {\n  stroke: currentColor;\n  fill: currentColor;\n}\n.dyna-plain-radio-button .text-container {\n  height: auto;\n  margin-left: 8px;\n}\n", ""]);
+exports.push([module.i, ".dyna-plain-radio-button {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-transition: opacity 250ms ease-in-out;\n  transition: opacity 250ms ease-in-out;\n}\n.dyna-plain-radio-button--enabled,\n.dyna-plain-radio-button--mode-EDIT {\n  cursor: pointer;\n  opacity: 1;\n}\n.dyna-plain-radio-button--disabled,\n.dyna-plain-radio-button--mode-VIEW {\n  cursor: default;\n  opacity: 0.8;\n}\n.dyna-plain-radio-button .bullet-container {\n  height: auto;\n  font-size: 0;\n}\n.dyna-plain-radio-button .bullet-container svg {\n  stroke: currentColor;\n  fill: currentColor;\n}\n.dyna-plain-radio-button .text-container {\n  height: auto;\n  margin-left: 8px;\n}\n.dyna-plain-radio-button--color-BLACK_WHITE {\n  color: #D0D3D4;\n}\n.dyna-plain-radio-button--color-BLACK_ORANGE {\n  color: #FF6900;\n}\n.dyna-plain-radio-button--color-TRANSPARENT_ORANGE {\n  color: #FF6900;\n}\n.dyna-plain-radio-button--color-TRANSPARENT_WHITE {\n  color: #D0D3D4;\n}\n.dyna-plain-radio-button--color-ORANGE_WHITE {\n  color: #D9D9D6;\n}\n.dyna-plain-radio-button--color-RED_WHITE {\n  color: #D0D3D4;\n}\n.dyna-plain-radio-button--color-GREY_WHITE {\n  color: #D0D3D4;\n}\n.dyna-plain-radio-button--color-WHITE_BLACK {\n  color: #222223;\n}\n.dyna-plain-radio-button--color-WHITE_RED {\n  color: #E4002B;\n}\n.dyna-plain-radio-button--color-WHITE_ORANGE {\n  color: #FF6900;\n}\n", ""]);
 
 // exports
 

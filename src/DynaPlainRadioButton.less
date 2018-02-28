@@ -1,3 +1,12 @@
+@import (reference) "~dyna-ui-styles/styles/WHITE_BLACK";
+@import (reference) "~dyna-ui-styles/styles/WHITE_RED";
+@import (reference) "~dyna-ui-styles/styles/BLACK_WHITE";
+@import (reference) "~dyna-ui-styles/styles/BLACK_ORANGE";
+@import (reference) "~dyna-ui-styles/styles/WHITE_ORANGE";
+@import (reference) "~dyna-ui-styles/styles/RED_WHITE";
+@import (reference) "~dyna-ui-styles/styles/GREY_WHITE";
+@import (reference) "~dyna-ui-styles/styles/ORANGE_WHITE";
+
 .dyna-plain-radio-button{
 	display: flex;
 	align-items: center;
@@ -24,8 +33,40 @@
 			fill: currentColor;
 		}
 	}
+
 	.text-container{
 		height: auto;
 		margin-left: 8px;
+	}
+
+	&--color-BLACK_WHITE {
+		color: @color-BLACK_WHITE-foreground-1;
+	}
+	&--color-BLACK_ORANGE {
+		color: @color-BLACK_ORANGE-foreground-1;
+	}
+	&--color-TRANSPARENT_ORANGE {
+		color: @color-WHITE_ORANGE-foreground-1;
+	}
+	&--color-TRANSPARENT_WHITE {
+		color: @color-BLACK_WHITE-foreground-1;
+	}
+	&--color-ORANGE_WHITE {
+		color: @color-ORANGE_WHITE-foreground-1;
+	}
+	&--color-RED_WHITE {
+		color: @color-RED_WHITE-foreground-1;
+	}
+	&--color-GREY_WHITE {
+		color: @color-GREY_WHITE-foreground-1;
+	}
+	&--color-WHITE_BLACK {
+		color: @color-WHITE_BLACK-foreground-1;
+	}
+	&--color-WHITE_RED {
+		color: @color-WHITE_RED-foreground-1;
+	}
+	&--color-WHITE_ORANGE {
+		color: @color-WHITE_ORANGE-foreground-1;
 	}
 }

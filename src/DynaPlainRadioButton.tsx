@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {Motion, Style} from "react-motion";
-import {EMode} from "dyna-ui-field-wrapper";
+import {EMode, EColor} from "dyna-ui-field-wrapper";
 
 import "./DynaPlainRadioButton.less";
 
 export interface IDynaPlainRadioButtonProps {
 	className?: string;
 	mode?: EMode;
+	color?: EColor;
 	checked?: boolean;
 	label?: string;
 	size?: number;
@@ -18,6 +19,7 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 	static defaultProps: IDynaPlainRadioButtonProps = {
 		className: '',
 		mode: EMode.EDIT,
+		color: EColor.WHITE_BLACK,
 		checked: true,
 		label: '',
 		size: 20,
@@ -36,7 +38,8 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 		const {
 			className: cn,
 			mode,
-			size, label,
+			color, size,
+			label,
 			disabled,
 			checked,
 		} = this.props;
@@ -46,6 +49,7 @@ export class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonP
 			cn,
 			`dyna-plain-radio-button--${disabled ? 'disabled' : 'enabled'}`,
 			`dyna-plain-radio-button--mode-${mode}`,
+			`dyna-plain-radio-button--color-${color}`,
 		].join(' ').trim();
 
 		const strokeWidth: number = 1;
