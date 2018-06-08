@@ -13,6 +13,6 @@ export interface IDynaPlainRadioButtonProps {
 }
 export declare class DynaPlainRadioButton extends React.Component<IDynaPlainRadioButtonProps> {
     static defaultProps: IDynaPlainRadioButtonProps;
-    private handleClick();
+    private handleClick;
     render(): JSX.Element;
 }
